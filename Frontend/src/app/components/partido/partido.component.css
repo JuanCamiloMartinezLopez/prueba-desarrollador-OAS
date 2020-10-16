@@ -1,0 +1,54 @@
+.Partido {
+  width: 300px;
+  height: 150px;
+  background-color: rgb(15, 70, 143);
+  text-align: center;
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.equipo {
+  height: 33%;
+  padding: 2px;
+  display: flex;
+  justify-content: space-between space-around;
+}
+
+.nomEquipo {
+  width: 80%;
+  height: 100%;
+  background-color: yellow;
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+.marcador {
+  width: 20%;
+  height: 100%;
+  background-color: yellow;
+  border-color: #000000;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+}
+
+.nombres {
+  height: 100%;
+  width: 80%;
+}
+
+.marcadores {
+  height: 100%;
+  width: 20%;
+  background-color: aqua;
+}
+
+#versus {
+  color: white;
+  font-style: italic;
+}

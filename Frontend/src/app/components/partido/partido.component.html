@@ -1,0 +1,36 @@
+<div class="Partido">
+  <ng-template [ngIf]="izquierda" [ngIfElse]="derecha">
+    <div class="equipo">
+      <h2 class="nomEquipo" (click)="open(popup)">{{ Equipo1 }}</h2>
+      <h2 class="marcador">{{ Marcador1 }}</h2>
+    </div>
+    <h3 id="versus">VS</h3>
+    <div class="equipo">
+      <h2 class="nomEquipo" (click)="open(popup)">{{ Equipo2 }}</h2>
+      <h2 class="marcador">{{ Marcador2 }}</h2>
+    </div>
+  </ng-template>
+  <ng-template #derecha>
+    <div class="equipo">
+      <h2 class="marcador">{{ Marcador1 }}</h2>
+      <h2 class="nomEquipo" (click)="open(popup)">{{ Equipo1 }}</h2>
+    </div>
+    <h3 id="versus">VS</h3>
+    <div class="equipo">
+      <h2 class="marcador">{{ Marcador2 }}</h2>
+      <h2 class="nomEquipo" (click)="open(popup)">{{ Equipo2 }}</h2>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #popup let-modal>
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <form action="">
+        <input type="text" />
+        <button></button>
+      </form>
+    </div>
+  </div>
+</ng-template>
