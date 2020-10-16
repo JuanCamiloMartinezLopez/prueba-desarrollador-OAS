@@ -8,6 +8,7 @@
   border-style: solid;
   border-radius: 8px;
   padding: 10px;
+  margin: auto;
 }
 
 .equipo {
@@ -15,6 +16,12 @@
   padding: 2px;
   display: flex;
   justify-content: space-between space-around;
+}
+
+.equipo,
+h2 {
+  font-size: medium;
+  text-align: center;
 }
 
 .nomEquipo {

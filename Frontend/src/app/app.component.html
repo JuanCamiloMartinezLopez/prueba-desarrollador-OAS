@@ -1,4 +1,98 @@
-<div class="container">
+<div class="container-fluid">
   <router-outlet></router-outlet>
-  <app-partido></app-partido>
+  <div class="titulo">
+    <h1>CUADRANGULARES</h1>
+  </div>
+  <div class="row">
+    <div class="col md-3">
+      <app-partido [id]="0" [idClas]="4" [izquierda]="true"></app-partido>
+    </div>
+    <div class="col md-3"></div>
+    <div class="col md-3"></div>
+    <div class="col md-3"></div>
+    <div class="col md-3">
+      <app-partido [id]="1" [idClas]="5" [izquierda]="false"></app-partido>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col md-3"></div>
+    <div class="col md-3">
+      <app-partido
+        [id]="4"
+        [editNames]="false"
+        [idClas]="6"
+        [izquierda]="true"
+        #1
+      ></app-partido>
+    </div>
+    <div class="col md-3">
+      <app-partido [id]="6" [editNames]="false" [Final]="true" #3></app-partido>
+    </div>
+    <div class="col md-3">
+      <app-partido
+        [id]="5"
+        [editNames]="false"
+        [idClas]="6"
+        [izquierda]="false"
+        #2
+      ></app-partido>
+    </div>
+    <div class="col md-3"></div>
+  </div>
+
+  <div class="row">
+    <div class="col md-3">
+      <app-partido [id]="2" [idClas]="4" [izquierda]="true"></app-partido>
+    </div>
+    <div class="col md-3"></div>
+    <div class="col md-3"></div>
+    <div class="col md-3"></div>
+    <div class="col md-3">
+      <app-partido [id]="3" [idClas]="5" [izquierda]="false"></app-partido>
+    </div>
+  </div>
+  <div class="">
+    <div class="row justify-content-center h-100">
+      <div class="col-sm-8 align-self-center text-center">
+        <button class="btn btn-info" (click)="open(Tabla)">
+          Tabla de posiciones
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
+
+<ng-template #Tabla let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">TABLA DE EQUIPOS</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Goles a favor</th>
+          <th scope="col">Goles en contra</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let equipo of equipos; let indice = index">
+        <tr>
+          <th scope="row">{{ indice + 1 }}</th>
+          <td>{{ equipo.nombre }}</td>
+          <td>{{ equipo.golesAfavor }}</td>
+          <td>{{ equipo.golesContra }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

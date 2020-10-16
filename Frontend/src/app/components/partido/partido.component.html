@@ -1,36 +1,164 @@
 <div class="Partido">
-  <ng-template [ngIf]="izquierda" [ngIfElse]="derecha">
+  <ng-template [ngIf]="Final" [ngIfElse]="normal">
     <div class="equipo">
-      <h2 class="nomEquipo" (click)="open(popup)">{{ Equipo1 }}</h2>
-      <h2 class="marcador">{{ Marcador1 }}</h2>
+      <h2 class="nomEquipo">
+        {{ Equipo1 }}
+      </h2>
+      <h2 class="marcador" (click)="open(formMarcador)">
+        {{ Marcador1 }}
+      </h2>
     </div>
+
     <h3 id="versus">VS</h3>
+
     <div class="equipo">
-      <h2 class="nomEquipo" (click)="open(popup)">{{ Equipo2 }}</h2>
-      <h2 class="marcador">{{ Marcador2 }}</h2>
+      <h2 class="marcador" (click)="open(formMarcador)">
+        {{ Marcador2 }}
+      </h2>
+      <h2 class="nomEquipo">
+        {{ Equipo2 }}
+      </h2>
     </div>
   </ng-template>
-  <ng-template #derecha>
-    <div class="equipo">
-      <h2 class="marcador">{{ Marcador1 }}</h2>
-      <h2 class="nomEquipo" (click)="open(popup)">{{ Equipo1 }}</h2>
-    </div>
-    <h3 id="versus">VS</h3>
-    <div class="equipo">
-      <h2 class="marcador">{{ Marcador2 }}</h2>
-      <h2 class="nomEquipo" (click)="open(popup)">{{ Equipo2 }}</h2>
-    </div>
+
+  <ng-template #normal>
+    <ng-template [ngIf]="izquierda" [ngIfElse]="derecha">
+      <div class="equipo">
+        <ng-template [ngIf]="editNames" [ngIfElse]="NoEditable">
+          <h2 class="nomEquipo" (click)="open(formNombres)">
+            {{ Equipo1 }}
+          </h2>
+        </ng-template>
+        <ng-template #NoEditable>
+          <h2 class="nomEquipo">
+            {{ Equipo1 }}
+          </h2>
+        </ng-template>
+        <h2 class="marcador" (click)="open(formMarcador)">
+          {{ Marcador1 }}
+        </h2>
+      </div>
+
+      <h3 id="versus">VS</h3>
+
+      <div class="equipo">
+        <ng-template [ngIf]="editNames" [ngIfElse]="NoEditable">
+          <h2 class="nomEquipo" (click)="open(formNombres)">
+            {{ Equipo2 }}
+          </h2>
+        </ng-template>
+        <ng-template #NoEditable>
+          <h2 class="nomEquipo">
+            {{ Equipo2 }}
+          </h2>
+        </ng-template>
+        <h2 class="marcador" (click)="open(formMarcador)">
+          {{ Marcador2 }}
+        </h2>
+      </div>
+    </ng-template>
+
+    <ng-template #derecha>
+      <div class="equipo">
+        <h2 class="marcador" (click)="open(formMarcador)">
+          {{ Marcador1 }}
+        </h2>
+        <ng-template [ngIf]="editNames" [ngIfElse]="NoEditable">
+          <h2 class="nomEquipo" (click)="open(formNombres)">
+            {{ Equipo1 }}
+          </h2>
+        </ng-template>
+        <ng-template #NoEditable>
+          <h2 class="nomEquipo">
+            {{ Equipo1 }}
+          </h2>
+        </ng-template>
+      </div>
+
+      <h3 id="versus">VS</h3>
+
+      <div class="equipo">
+        <h2 class="marcador" (click)="open(formMarcador)">
+          {{ Marcador2 }}
+        </h2>
+        <ng-template [ngIf]="editNames" [ngIfElse]="NoEditable">
+          <h2 class="nomEquipo" (click)="open(formNombres)">
+            {{ Equipo2 }}
+          </h2>
+        </ng-template>
+        <ng-template #NoEditable>
+          <h2 class="nomEquipo">
+            {{ Equipo2 }}
+          </h2>
+        </ng-template>
+      </div>
+    </ng-template>
   </ng-template>
 </div>
 
-<ng-template #popup let-modal>
-  <div class="card" style="width: 18rem">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <form action="">
-        <input type="text" />
-        <button></button>
-      </form>
+<ng-template #formNombres let-modal>
+  <div class="row justify-content-center h-100">
+    <div class="col-sm-8 align-self-center text-center">
+      <div class="card" style="width: 300px">
+        <div class="card-body">
+          <h5 class="card-title">Nombres</h5>
+          <form [formGroup]="formGNombres" (ngSubmit)="onSubmitNombres(modal)">
+            <label>
+              Primer Equipo:
+              <input
+                type="text"
+                formControlName="equipo1"
+                placeholder="Nombre equipo"
+              />
+            </label>
+            <label>
+              Segundo Equipo:
+              <input
+                type="text"
+                formControlName="equipo2"
+                placeholder="Nombre equipo"
+              />
+            </label>
+            <button type="submit" class="btn btn-success">Ingresar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #formMarcador let-modal>
+  <div class="row justify-content-center h-100">
+    <div class="col-sm-8 align-self-center text-center">
+      <div class="card" style="width: 300px">
+        <div class="card-body">
+          <h5 class="card-title">Marcadores</h5>
+          <form
+            [formGroup]="formGMarcadores"
+            (ngSubmit)="onSubmitMarcadores(modal)"
+          >
+            <label>
+              Primer Equipo:
+              <input
+                type="number"
+                formControlName="marcador1"
+                placeholder="Marcador equipo"
+                min="0"
+              />
+            </label>
+            <label>
+              Segundo Equipo:
+              <input
+                type="number"
+                formControlName="marcador2"
+                placeholder="Marcador equipo"
+                min="0"
+              />
+            </label>
+            <button type="submit" class="btn btn-success">Ingresar</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </ng-template>

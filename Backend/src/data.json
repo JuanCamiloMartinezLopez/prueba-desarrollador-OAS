@@ -1,0 +1,63 @@
+{
+  "equipos": [
+    
+  ],
+  "partidos": [
+    {
+        "equipo1": "",
+        "equipo2": "",
+        "marcador1": null,
+        "marcador2": null,
+        "Id1": null,
+        "Id2": null
+    },
+    {
+        "equipo1": "",
+        "equipo2": "",
+        "marcador1": null,
+        "marcador2": null,
+        "Id1": null,
+        "Id2": null
+    },
+    {
+      "equipo1": "",
+      "equipo2": "",
+      "marcador1": null,
+      "marcador2": null,
+      "Id1": null,
+      "Id2": null
+    },
+    {
+        "equipo1": "",
+        "equipo2": "",
+        "marcador1": null,
+        "marcador2": null,
+        "Id1": null,
+        "Id2": null
+    },
+    {
+        "equipo1": "",
+        "equipo2": "",
+        "marcador1": null,
+        "marcador2": null,
+        "Id1": null,
+        "Id2": null
+    },
+    {
+        "equipo1": "",
+        "equipo2": "",
+        "marcador1": null,
+        "marcador2": null,
+        "Id1": null,
+        "Id2": null
+    },
+    {
+      "equipo1": "",
+      "equipo2": "",
+      "marcador1": null,
+      "marcador2": null,
+      "Id1": null,
+      "Id2": null
+    }
+  ]
+}

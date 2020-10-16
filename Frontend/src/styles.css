@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-image: url(./assets/football-fans-stadium-from.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.9;
+  font-family: "Anton", sans-serif;
+}
